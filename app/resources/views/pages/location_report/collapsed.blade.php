@@ -75,6 +75,17 @@
 						</div>
 						<div class="comments">
 							<a href="/location-comments/{{ $location->id }}">See All Comments</a>
+						<h3>(Under Development)</h3>
+						<div class="location-rating">
+							@include('pages.components.pie_graph',
+								array(
+									'percent' => $location->getAccessibilityRating($rating_system),
+									'size' => 'big'))
+							<span class="percentage">{{ round($location->getAccessibilityRating($rating_system)) }}%</span>
+							<div class="foreground">
+								<div class="accessible-label">Accessible</div>
+								<div class="num-ratings">( {{ $num_ratings }} ratings )</div>
+							</div>
 						</div>
 					</div>
 					<div class="location-rating">
